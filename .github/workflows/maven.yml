@@ -15,10 +15,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up JDK 21
+    - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
-        java-version: '21'
+        java-version: '17'
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
@@ -51,7 +51,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t dianda87/adoptopenjdk-image:latest .
+        docker build -t dianda87/boardshack:latest .
 
     - name: Trivy Image Scan
       run: |
@@ -65,7 +65,7 @@ jobs:
 
     - name: Push Docker Image
       run: |
-          docker push dianda87/adoptopenjdk-image:latest
+          docker push dianda87/boardshack:latest:latest
 
 
 
